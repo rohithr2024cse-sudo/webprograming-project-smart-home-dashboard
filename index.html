@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#10131d">
+  <title>Nestify — Smart Home</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#"><span class="brand-mark">✳</span><span>Nestify<span class="brand-dot">.</span></span></a>
+      <p class="nav-label">WORKSPACE</p>
+      <nav class="nav">
+        <a class="nav-link active" href="#overview"><span>▦</span> Overview</a>
+        <a class="nav-link" href="#rooms"><span>⌂</span> Rooms <span class="nav-count">4</span></a>
+        <a class="nav-link" href="#devices"><span>◉</span> Devices <span class="nav-count">8</span></a>
+        <a class="nav-link" href="#scenes"><span>☼</span> Scenes</a>
+        <a class="nav-link" href="#energy"><span>ϟ</span> Energy</a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="help-card"><div class="help-icon">✦</div><strong>Make life simpler</strong><p>Your home, all in one place.</p><button id="tipsButton" class="text-button">Explore tips ↗</button></div>
+        <div class="profile"><div class="avatar">R</div><div><strong>Home Owner</strong><small>Personal home</small></div><span class="more">···</span></div>
+      </div>
+    </aside>
+
+    <main class="main-content" id="overview">
+      <header class="topbar">
+        <div class="mobile-brand">✳ Nestify<span>.</span></div>
+        <div class="breadcrumb">Workspace <span>/</span> <strong>Overview</strong></div>
+        <div class="top-actions"><span class="status-dot"></span><span class="online-label">All systems normal</span><button class="icon-button" id="themeButton" aria-label="Toggle theme">◐</button><div class="avatar small-avatar">R</div></div>
+      </header>
+
+      <section class="welcome-row">
+        <div><p class="eyebrow" id="todayLabel">YOUR HOME AT A GLANCE</p><h1>Good afternoon<span class="wave"> ✦</span></h1><p class="subheading">Here's what's happening around your home today.</p></div>
+        <div class="date-pill"><span>◷</span><span id="liveDate">Sunday, October 11</span><span class="date-divider"></span><strong id="liveTime">4:17 PM</strong></div>
+      </section>
+
+      <section class="summary-grid">
+        <article class="summary-card"><div class="summary-top"><span>Indoor temperature</span><span class="summary-icon warm">♨</span></div><div class="summary-value"><strong id="tempSummary">22°</strong><span class="unit">C</span><span class="trend">Comfortable</span></div><div class="mini-bars temp-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></article>
+        <article class="summary-card"><div class="summary-top"><span>Energy usage</span><span class="summary-icon energy">ϟ</span></div><div class="summary-value"><strong>4.8</strong><span class="unit">kWh</span><span class="trend green">↓ 12%</span></div><div class="mini-bars energy-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></article>
+        <article class="summary-card"><div class="summary-top"><span>Devices online</span><span class="summary-icon devices-icon">⌁</span></div><div class="summary-value"><strong id="onlineCount">6</strong><span class="unit">/ 8</span><span class="trend green">Connected</span></div><div class="device-progress"><span></span></div><div class="progress-caption"><span>System status</span><strong>75%</strong></div></article>
+      </section>
+
+      <section class="content-grid">
+        <div class="section-panel devices-panel" id="devices">
+          <div class="section-heading"><div><h2>Quick controls</h2><p>Manage your devices with one tap.</p></div><button class="subtle-button" id="allDevicesButton">Turn all off</button></div>
+          <div class="device-grid">
+            <article class="device-card on" data-device="livingLight"><div class="device-card-top"><div class="device-symbol bulb">☼</div><button class="toggle on" aria-label="Toggle living room lights"><span></span></button></div><h3>Living room lights</h3><p>Living room · Smart bulb</p><div class="device-foot"><span class="device-state">On</span><span class="device-detail">80% brightness</span></div><input class="brightness-control" type="range" min="0" max="100" value="80" aria-label="Living room brightness"></article>
+            <article class="device-card on" data-device="ac"><div class="device-card-top"><div class="device-symbol ac-symbol">❄</div><button class="toggle on" aria-label="Toggle air conditioner"><span></span></button></div><h3>Air conditioner</h3><p>Bedroom · Climate</p><div class="device-foot"><span class="device-state">On</span><span class="device-detail" id="acDetail">22°C · Cool</span></div><div class="temp-adjust"><button id="tempDown" aria-label="Decrease temperature">−</button><span id="acTemp">22°C</span><button id="tempUp" aria-label="Increase temperature">+</button></div></article>
+            <article class="device-card" data-device="deskLamp"><div class="device-card-top"><div class="device-symbol lamp">♧</div><button class="toggle" aria-label="Toggle desk lamp"><span></span></button></div><h3>Desk lamp</h3><p>Workspace · Smart plug</p><div class="device-foot"><span class="device-state">Off</span><span class="device-detail">Warm white</span></div><div class="device-note">Tap to power on</div></article>
+            <article class="device-card on" data-device="security"><div class="device-card-top"><div class="device-symbol security-symbol">⬡</div><button class="toggle on" aria-label="Toggle security camera"><span></span></button></div><h3>Security camera</h3><p>Front door · Security</p><div class="device-foot"><span class="device-state">On</span><span class="device-detail"><span class="tiny-green"></span> Monitoring</span></div><div class="device-note">Home protection active</div></article>
+          </div>
+        </div>
+
+        <div class="section-panel scenes-panel" id="scenes">
+          <div class="section-heading"><div><h2>Scenes</h2><p>Set the mood instantly.</p></div><button class="round-more" aria-label="More scenes" id="moreScenes">···</button></div>
+          <div class="scene-list">
+            <button class="scene-card active-scene" data-scene="Home"><span class="scene-art home-art">⌂</span><span class="scene-copy"><strong>Home</strong><small>Everyday comfort</small></span><span class="scene-arrow">↗</span></button>
+            <button class="scene-card" data-scene="Focus"><span class="scene-art focus-art">◎</span><span class="scene-copy"><strong>Focus</strong><small>Get in the zone</small></span><span class="scene-arrow">↗</span></button>
+            <button class="scene-card" data-scene="Relax"><span class="scene-art relax-art">☾</span><span class="scene-copy"><strong>Relax</strong><small>Wind down softly</small></span><span class="scene-arrow">↗</span></button>
+            <button class="scene-card" data-scene="Away"><span class="scene-art away-art">↗</span><span class="scene-copy"><strong>Away</strong><small>Secure your home</small></span><span class="scene-arrow">↗</span></button>
+          </div>
+          <p class="scene-feedback" id="sceneFeedback">Home scene is active.</p>
+        </div>
+      </section>
+
+      <section class="bottom-grid">
+        <div class="section-panel rooms-panel" id="rooms">
+          <div class="section-heading"><div><h2>Your rooms</h2><p>A little overview of every space.</p></div><button class="link-button" id="viewRooms">View all ↗</button></div>
+          <div class="room-grid">
+            <article class="room-card living-room"><div class="room-photo"><span class="room-emoji">🛋️</span><span class="room-temp">23°C</span></div><div class="room-info"><div><h3>Living room</h3><p>3 devices</p></div><span class="room-status"><i></i> 2 on</span></div></article>
+            <article class="room-card bedroom"><div class="room-photo"><span class="room-emoji">🛏️</span><span class="room-temp">22°C</span></div><div class="room-info"><div><h3>Bedroom</h3><p>2 devices</p></div><span class="room-status"><i></i> 1 on</span></div></article>
+            <article class="room-card workspace"><div class="room-photo"><span class="room-emoji">🪴</span><span class="room-temp">24°C</span></div><div class="room-info"><div><h3>Workspace</h3><p>2 devices</p></div><span class="room-status muted-status"><i></i> All off</span></div></article>
+          </div>
+        </div>
+        <div class="section-panel energy-panel" id="energy">
+          <div class="section-heading"><div><h2>Energy overview</h2><p>Today's electricity usage.</p></div><span class="energy-period">Today⌄</span></div>
+          <div class="energy-total"><strong>4.8 <small>kWh</small></strong><span class="trend green">↓ 12%</span></div>
+          <div class="chart" aria-label="Illustrative energy use chart"><div class="chart-y"><span>2.0</span><span>1.5</span><span>1.0</span><span>0.5</span><span>0</span></div><div class="chart-main"><div class="chart-lines"><i></i><i></i><i></i><i></i><i></i></div><div class="chart-bars"><span style="height:30%"></span><span style="height:48%"></span><span style="height:38%"></span><span style="height:68%"></span><span style="height:52%"></span><span style="height:84%"></span><span style="height:58%"></span><span style="height:72%"></span><span style="height:43%"></span><span style="height:62%"></span><span style="height:35%"></span><span style="height:25%"></span></div><div class="chart-x"><span>6 AM</span><span>9 AM</span><span>12 PM</span><span>3 PM</span><span>6 PM</span></div></div></div>
+          <div class="energy-tip"><span>✦</span><p><strong>Nice work!</strong> You're using 12% less energy than yesterday.</p></div>
+        </div>
+      </section>
+      <footer>Made for a smarter, calmer home <span>● Demo dashboard · Controls are simulated</span></footer>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
